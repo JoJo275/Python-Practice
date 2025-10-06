@@ -1,0 +1,49 @@
+text,Unnamed: 1
+[CLASSICAL MUSIC],
+DAVID J. MALAN: All right,
+this is CS50's Introduction,
+to Programming with Python.,
+My name is David Malan, and this is our
+week on object-oriented programming,
+or OOP.,
+It turns out that, in
+the world of programming,
+there's different paradigms,
+of programming languages.,
+There's different ways of,
+solving problems with code,
+and it's a little hard,
+to see this at first,
+if you've only learned one language.,
+But over time, if and when you learn
+other languages besides Python,
+you'll start to notice certain,
+patterns and certain capabilities,
+of some languages but not another.,
+Thus far, within the
+world of Python, you and I
+have largely been writing code that's,
+procedural in nature, whereby we're
+writing procedures;,
+we're writing functions;,
+and we're doing things top to bottom.,
+Everything is step by,
+step by step, as you would
+expect in general from an algorithm.,
+But along the way,
+we've actually dabbled,
+in another paradigm known as functional,
+programming with Python whereby we've,
+been able to pass functions around.,
+We even had an anonymous,
+function some weeks ago.,
+And that's evidence of features of,
+a functional programming language,
+even though we've just,
+scratched the surface thereof.,
+Today we focus on another paradigm,
+and this one in more detail--,
+namely object-oriented programming.,
+And the idea here is that,
+we can define our own types,
+of data structures, our own types
