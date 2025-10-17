@@ -25,7 +25,7 @@ def sum_of_even(n: int) -> int:
     return sum(i for i in range(1, n + 1) if i % 2 == 0)
 
 
-def main():
+def main() -> None:
     """Main function to demonstrate sum_of_even usage."""
     i = int(input("Enter an integer n to compute sum_of_even(n): "))
     print(sum_of_even(i))
