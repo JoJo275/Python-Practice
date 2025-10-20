@@ -2,7 +2,7 @@
 
 3) fibonacci(n)
 - Description: Return the nth Fibonacci number, with fibonacci(0)=0,
-  fibonacci(1)=1. For n<0 raise ValueError.
+fibonacci(1)=1. For n<0 raise ValueError.
 - Input: integer n
 - Output: integer
 
@@ -72,17 +72,17 @@ def main() -> None:
             if user_input.lower() in ('q', 'quit', 'exit'):
                 print("Goodbye!")
                 break
-            
+
             # Try to convert to integer
             n = int(user_input)
-            
+
             # Calculate fibonacci number
             result = fibonacci(n)
-            
+
             # Display result
             print(f"✓ fibonacci({n}) = {result}")
             print()
-            
+
         except ValueError as e:
             # Handle ValueError from fibonacci() or int() conversion
             if "non-negative" in str(e).lower():
@@ -90,12 +90,12 @@ def main() -> None:
             else:
                 print("✗ Error: Invalid input. Please enter a valid integer.")
             print()
-            
+
         except KeyboardInterrupt:
             # Handle Ctrl+C gracefully
             print("\n\nProgram interrupted by user. Goodbye!")
             break
-            
+
         except Exception as e:
             # Catch any other unexpected errors
             print(f"✗ An unexpected error occurred: {e}")
