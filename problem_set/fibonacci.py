@@ -1,7 +1,8 @@
 """ fibonacci.py
 
 3) fibonacci(n)
-- Description: Return the nth Fibonacci number, with fibonacci(0)=0, fibonacci(1)=1. For n<0 raise ValueError.
+- Description: Return the nth Fibonacci number, with fibonacci(0)=0,
+  fibonacci(1)=1. For n<0 raise ValueError.
 - Input: integer n
 - Output: integer
 
@@ -50,8 +51,55 @@ def fibonacci(n: int) -> int:
     return b
 
 
+def main() -> None:
+    """Main function to demonstrate fibonacci usage with error handling.
 
-def main():
+    Prompts user for input and displays the corresponding Fibonacci number.
+    Handles various error cases including invalid input and negative numbers.
+    """
+    print("=== Fibonacci Number Calculator ===")
+    print("This program calculates the nth Fibonacci number.")
+    print("Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...")
+    print()
+
+    while True:
+        try:
+            # Get user input
+            prompt = "Enter a non-negative integer n (or 'q' to quit): "
+            user_input = input(prompt).strip()
+
+            # Allow user to quit
+            if user_input.lower() in ('q', 'quit', 'exit'):
+                print("Goodbye!")
+                break
+            
+            # Try to convert to integer
+            n = int(user_input)
+            
+            # Calculate fibonacci number
+            result = fibonacci(n)
+            
+            # Display result
+            print(f"✓ fibonacci({n}) = {result}")
+            print()
+            
+        except ValueError as e:
+            # Handle ValueError from fibonacci() or int() conversion
+            if "non-negative" in str(e).lower():
+                print(f"✗ Error: {e}")
+            else:
+                print("✗ Error: Invalid input. Please enter a valid integer.")
+            print()
+            
+        except KeyboardInterrupt:
+            # Handle Ctrl+C gracefully
+            print("\n\nProgram interrupted by user. Goodbye!")
+            break
+            
+        except Exception as e:
+            # Catch any other unexpected errors
+            print(f"✗ An unexpected error occurred: {e}")
+            print()
 
 
 if __name__ == "__main__":
