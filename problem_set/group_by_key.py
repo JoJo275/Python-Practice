@@ -32,8 +32,10 @@ def group_by_key(items: list[dict], key: str) -> dict:
         key: The key to group the dictionaries by.
 
     Returns:
-        A dictionary mapping key values to lists of dictionaries that share that key value.
-        If a dictionary does not contain the specified key, it is grouped under None.
+        A dictionary mapping key values to lists of dictionaries that share
+        that key value.
+        If a dictionary does not contain the specified key, it is grouped
+        under None.
 
     Examples:
         >>> items = [
