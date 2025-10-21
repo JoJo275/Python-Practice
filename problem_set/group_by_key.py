@@ -24,6 +24,7 @@ def main() -> None:
     grouped = group_by_key(items, key)
     print(grouped)
 
+
 def group_by_key(items: list[dict], key: str) -> dict:
     """Group a list of dictionaries by a specified key.
 
