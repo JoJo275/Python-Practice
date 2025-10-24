@@ -207,7 +207,7 @@ def main() -> None:
         the user chooses to exit.
     """
     print("╔════════════════════════════════════════╗")
-    print("║   Welcome to the Number Calculator    ║")
+    print("║   Welcome to the Number Calculator     ║")
     print("╚════════════════════════════════════════╝")
 
     while True:
