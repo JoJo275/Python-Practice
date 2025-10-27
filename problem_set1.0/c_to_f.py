@@ -27,11 +27,27 @@ def celsius_to_fahrenheit(celsius: float) -> float:
     fahrenheit = (celsius * 9/5) + 32
     return round(fahrenheit, 2)
 
-def main():
 
-user_input = float(input("Enter temperature in Celsius: "))
-    fahrenheit = celsius_to_fahrenheit(user_input)
-    print(f"{user_input}°C is equal to {fahrenheit}°F")
+def main():
+    print("=== Celsius to Fahrenheit Converter ===")
+    print("Type 'quit', 'exit', or 'q' to stop the program.\n")
+
+    while True:
+        user_input = input("Enter temperature in Celsius: ").strip()
+
+        # Check if user wants to quit
+        if user_input.lower() in ['quit', 'exit', 'q']:
+            print("Thank you for using the temperature converter. Goodbye!")
+            break
+
+        try:
+            celsius = float(user_input)
+            fahrenheit = celsius_to_fahrenheit(celsius)
+            print(f"{celsius}°C is equal to {fahrenheit}°F\n")
+        except ValueError:
+            print(f"Error: '{user_input}' is not a valid number. Please enter a numeric value.\n")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}\n")
 
 if __name__ == "__main__":
     main()
