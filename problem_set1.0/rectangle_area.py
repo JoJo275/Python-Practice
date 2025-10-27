@@ -156,7 +156,7 @@ def main() -> None:
         None
     Raises:
         - ValueError: If width or height is not positive
-        - TypeError: If width or height is not a number
+        - Exception: For unexpected issues during input or calculation
     Side Effects:
         - Prints to console (stdout)
         - Reads from console (stdin)
