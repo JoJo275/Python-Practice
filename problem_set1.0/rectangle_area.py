@@ -18,9 +18,9 @@ Features:
 Usage:
     Run the script directly from the command line:
     $ python rectangle_area.py
-    
+
     Then follow the prompts to enter width and height values.
-    
+
 Examples:
     >>> Enter the width of the rectangle: 5.5
     >>> Enter the height of the rectangle: 3.2
@@ -28,7 +28,7 @@ Examples:
 
 Author: Your Name
 Date: Current Date
-Version: 1.0
+Version: 2.0
 
 Notes:
     - Both width and height must be positive numbers
@@ -39,24 +39,24 @@ Notes:
 # !/usr/bin/env python3
 
 # Import statements for type hints
-from typing import Optional, Tuple
+from typing import Optional
 
 
 def calculate_rectangle_area(width: float, height: float) -> float:
     """Calculate the area of a rectangle.
-    
+
     Uses the formula: Area = width × height
-    
+
     Args:
         width (float): The width of the rectangle. Must be positive.
         height (float): The height of the rectangle. Must be positive.
-    
+
     Returns:
         float: The area of the rectangle, rounded to 2 decimal places.
-    
+
     Raises:
         ValueError: If width or height is negative or zero.
-    
+
     Examples:
         >>> calculate_rectangle_area(5, 3)
         15.0
@@ -64,7 +64,7 @@ def calculate_rectangle_area(width: float, height: float) -> float:
         9.9
         >>> calculate_rectangle_area(10, 10)
         100.0
-        
+
     Note:
         The function rounds the result to 2 decimal places to avoid
         floating-point precision issues in display.
@@ -74,27 +74,27 @@ def calculate_rectangle_area(width: float, height: float) -> float:
         raise ValueError(f"Width must be positive, got {width}")
     if height <= 0:
         raise ValueError(f"Height must be positive, got {height}")
-    
+
     # Calculate area using the rectangle area formula
     area = width * height
-    
+
     # Round to 2 decimal places for cleaner output
     return round(area, 2)
 
 
 def get_positive_float(prompt: str) -> Optional[float]:
     """Get a positive float value from user input.
-    
+
     Continuously prompts the user until a valid positive number is entered
     or the user chooses to quit.
-    
+
     Args:
         prompt (str): The prompt message to display to the user.
-    
+
     Returns:
         Optional[float]: The positive float value entered by the user,
                         or None if the user chose to quit.
-    
+
     Note:
         Accepts 'quit', 'exit', or 'q' to return None.
         Only accepts positive numbers (greater than 0).
@@ -102,24 +102,24 @@ def get_positive_float(prompt: str) -> Optional[float]:
     while True:
         # Get user input and strip whitespace
         user_input = input(prompt).strip()
-        
+
         # Check for quit commands
         if user_input.lower() in ['quit', 'exit', 'q']:
             return None
-        
+
         try:
             # Attempt to convert input to float
             value = float(user_input)
-            
+
             # Validate that the value is positive
             if value <= 0:
                 print(f"Error: Value must be positive. You entered {value}.")
                 print("Please enter a positive number greater than 0.\n")
                 continue
-                
+
             # Return valid positive value
             return value
-            
+
         except ValueError:
             # Handle non-numeric input
             print(f"Error: '{user_input}' is not a valid number.")
@@ -136,7 +136,7 @@ def main() -> None:
     This function provides a user-friendly command-line interface for
     calculating rectangle areas. It runs in a continuous loop, allowing
     users to calculate multiple rectangle areas until they choose to exit.
-    
+
     Features:
         - Continuous calculation loop
         - Input validation for positive numbers only
@@ -144,17 +144,19 @@ def main() -> None:
         - Option to quit at any input prompt
         - Formatted output with proper units
         - Summary of calculations performed
-    
+
     The function handles all user interaction, including:
         - Displaying welcome messages and instructions
         - Collecting width and height inputs
         - Performing calculations
         - Displaying results
         - Offering to continue or exit
-    
+
     Returns:
         None
-        
+    Raises:
+        - ValueError: If width or height is not positive
+        - TypeError: If width or height is not a number
     Side Effects:
         - Prints to console (stdout)
         - Reads from console (stdin)
@@ -165,36 +167,36 @@ def main() -> None:
     print("=" * 50)
     print("\nThis program calculates the area of a rectangle.")
     print("Enter 'quit', 'exit', or 'q' at any prompt to stop.\n")
-    
+
     # Counter for number of calculations performed
     calculation_count = 0
-    
+
     # Main program loop - continues until user chooses to exit
     while True:
         print(f"\n--- Calculation #{calculation_count + 1} ---")
-        
+
         # Get width from user with validation
         print("Step 1: Enter the width")
         width = get_positive_float("Width of the rectangle: ")
-        
+
         # Check if user wants to quit
         if width is None:
             print("\nExiting calculator...")
             break
-        
+
         # Get height from user with validation
         print("\nStep 2: Enter the height")
         height = get_positive_float("Height of the rectangle: ")
-        
+
         # Check if user wants to quit
         if height is None:
             print("\nExiting calculator...")
             break
-        
+
         try:
             # Calculate the area using the dedicated function
             area = calculate_rectangle_area(width, height)
-            
+
             # Display the results with formatting
             print("\n" + "=" * 40)
             print("CALCULATION RESULTS:")
@@ -202,29 +204,29 @@ def main() -> None:
             print(f"  Height: {height} units")
             print(f"  Area:   {area} square units")
             print("=" * 40)
-            
+
             # Increment successful calculation counter
             calculation_count += 1
-            
+
             # Ask if user wants to perform another calculation
             print("\nWould you like to calculate another rectangle?")
             continue_choice = input("Enter 'yes' to continue or any other key to exit: ").strip().lower()
-            
+
             # Check if user wants to continue
             if continue_choice not in ['yes', 'y']:
                 print("\nThank you for using the Rectangle Area Calculator!")
                 break
-                
+
         except ValueError as e:
             # Handle validation errors from calculate_rectangle_area
             print(f"\nError in calculation: {e}")
             print("Please try again with valid positive values.")
-            
+
         except Exception as e:
             # Catch-all for any unexpected errors during calculation
             print(f"\nAn unexpected error occurred during calculation: {e}")
             print("Please try again.")
-    
+
     # Display session summary before exiting
     if calculation_count > 0:
         print(f"\nYou performed {calculation_count} calculation(s) this session.")
