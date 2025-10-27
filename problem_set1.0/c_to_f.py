@@ -16,10 +16,10 @@ Features:
 Usage:
     Run the script directly from the command line:
     $ python c_to_f.py
-    
+
 Author: Your Name
 Date: Current Date
-Version: 1.0
+Version: 2.0
 """
 
 # !/usr/bin/env python3
@@ -50,37 +50,37 @@ def celsius_to_fahrenheit(celsius: float) -> float:
         -40.0
         >>> celsius_to_fahrenheit(37)  # Normal body temperature
         98.6
-        
+
     Note:
         The function rounds the result to 2 decimal places for better
         readability and practical use.
     """
     # Apply the conversion formula: multiply by 9/5 and add 32
     fahrenheit = (celsius * 9/5) + 32
-    
+
     # Round to 2 decimal places for cleaner output
     return round(fahrenheit, 2)
 
 
 def main() -> None:
     """Main function to run the temperature converter program.
-    
+
     This function provides a command-line interface for the temperature
     converter. It runs in a continuous loop, prompting the user for
     Celsius temperatures and displaying the Fahrenheit equivalent.
-    
+
     The loop continues until the user enters one of the exit commands:
     'quit', 'exit', or 'q' (case-insensitive).
-    
+
     Features:
         - Input validation with helpful error messages
         - Graceful handling of invalid inputs
         - Clear user instructions
         - Multiple exit command options
-    
+
     Returns:
         None
-        
+
     Raises:
         No exceptions are raised; all errors are handled internally
         with user-friendly messages.
@@ -104,19 +104,19 @@ def main() -> None:
         try:
             # Attempt to parse the user input as a floating-point number
             celsius: float = float(user_input)
-            
+
             # Perform the temperature conversion
             fahrenheit: float = celsius_to_fahrenheit(celsius)
-            
+
             # Display the result with proper formatting
             # Using degree symbols (°) for better readability
             print(f"{celsius}°C is equal to {fahrenheit}°F\n")
-            
+
         except ValueError:
             # Handle case where input cannot be converted to a number
             # This catches inputs like "abc", "12.34.56", empty strings, etc.
             print(f"Error: '{user_input}' is not a valid number. Please enter a numeric value.\n")
-            
+
         except Exception as e:
             # Catch-all for any unexpected errors
             # This ensures the program doesn't crash unexpectedly
