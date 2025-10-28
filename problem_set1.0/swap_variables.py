@@ -21,21 +21,21 @@ METHODS IMPLEMENTED:
    - Works with any data type
    - Time Complexity: O(1)
    - Space Complexity: O(1)
-   
+
 2. Arithmetic Operations
    - Uses mathematical properties
    - Limited to numeric types
    - Risk of overflow with very large numbers
    - Time Complexity: O(1)
    - Space Complexity: O(1)
-   
+
 3. XOR Bitwise Operation
    - Clever bit manipulation technique
    - Limited to integers
    - Fails if both variables reference the same object
    - Time Complexity: O(1)
    - Space Complexity: O(1)
-   
+
 4. Traditional Temporary Variable
    - Most universal approach across languages
    - Clear and explicit
@@ -56,12 +56,12 @@ USAGE EXAMPLES:
 --------------
 Interactive Mode:
     $ python swap_variables.py
-    
+
 Command-line Mode:
     $ python swap_variables.py -a 10 -b 20
     $ python swap_variables.py -a "hello" -b "world" -m tuple
     $ python swap_variables.py -a 42 -b 17 -m all -v
-    
+
 As a Module:
     >>> from swap_variables import VariableSwapper
     >>> swapper = VariableSwapper()
@@ -102,11 +102,11 @@ logger = logging.getLogger(__name__)
 class SwapMethod(Enum):
     """
     Enumeration of available swap methods.
-    
+
     This enum provides a type-safe way to specify swap methods,
     preventing typos and enabling IDE autocomplete. Each value
     corresponds to a string identifier used in command-line arguments.
-    
+
     Attributes:
         TUPLE_UNPACKING: Python's idiomatic tuple unpacking method
         ARITHMETIC: Mathematical approach using addition/subtraction
@@ -125,11 +125,11 @@ class SwapMethod(Enum):
 class SwapResult:
     """
     Data class to store swap operation results.
-    
+
     This immutable data structure encapsulates all information about
     a swap operation, including success status and error details.
     Using a dataclass provides automatic __init__, __repr__, and __eq__ methods.
-    
+
     Attributes:
         original_a: The original value of the first variable
         original_b: The original value of the second variable
@@ -138,7 +138,7 @@ class SwapResult:
         method: String identifier of the swap method used
         success: Boolean indicating if swap was successful
         error_message: Optional error message if swap failed
-        
+
     Example:
         >>> result = SwapResult(
         ...     original_a=10, original_b=20,
@@ -153,17 +153,17 @@ class SwapResult:
     swapped_b: Any                       # Second value after swap
     method: str                          # Method name used for swap
     success: bool                        # Whether swap succeeded
-    error_message: Optional[str] = None # Error details if swap failed
+    error_message: Optional[str] = None  # Error details if swap failed
 
 
 class VariableSwapper:
     """
     Class to handle various variable swapping operations.
-    
+
     This class encapsulates all swap logic and provides a clean interface
     for performing different types of swaps. It includes type detection,
     error handling, and logging capabilities.
-    
+
     The class design follows the Single Responsibility Principle by focusing
     solely on swap operations and related type detection.
     
