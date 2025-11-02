@@ -56,47 +56,47 @@ class ParityResult:
 
 class ParityChecker:
     """Class to handle various even/odd checking operations."""
-    
+
     def __init__(self, verbose: bool = False):
         """
         Initialize the ParityChecker.
-        
+
         Args:
             verbose: If True, provides detailed output
         """
         self.verbose = verbose
-    
+
     def check_modulo(self, number: int) -> Tuple[bool, str]:
         """
         Check if number is even using modulo operation.
-        
+
         This is the most common and intuitive method.
         Even numbers have remainder 0 when divided by 2.
-        
+
         Time Complexity: O(1)
-        
+
         Args:
             number: Integer to check
-            
+
         Returns:
             Tuple of (is_even, explanation)
         """
         is_even = number % 2 == 0
         explanation = f"{number} % 2 = {number % 2}, so it's {'even' if is_even else 'odd'}"
         return is_even, explanation
-    
+
     def check_bitwise(self, number: int) -> Tuple[bool, str]:
         """
         Check if number is even using bitwise AND operation.
-        
+
         In binary, even numbers have 0 in the least significant bit (LSB),
         odd numbers have 1. AND with 1 extracts the LSB.
-        
+
         Time Complexity: O(1) - Often faster than modulo
-        
+
         Args:
             number: Integer to check
-            
+
         Returns:
             Tuple of (is_even, explanation)
         """
@@ -104,19 +104,19 @@ class ParityChecker:
         explanation = (f"{number} & 1 = {number & 1}, "
                       f"LSB is {'0 (even)' if is_even else '1 (odd)'}")
         return is_even, explanation
-    
+
     def check_bitshift(self, number: int) -> Tuple[bool, str]:
         """
         Check if number is even using bit shifting.
-        
+
         Right shift by 1 (divide by 2), then left shift by 1 (multiply by 2).
         If the result equals original, the number is even.
-        
+
         Time Complexity: O(1)
-        
+
         Args:
             number: Integer to check
-            
+
         Returns:
             Tuple of (is_even, explanation)
         """
@@ -125,11 +125,11 @@ class ParityChecker:
         explanation = (f"({number} >> 1) << 1 = {shifted}, "
                       f"{'equals' if is_even else 'not equal to'} original")
         return is_even, explanation
-    
+
     def check_division(self, number: int) -> Tuple[bool, str]:
         """
         Check if number is even using division.
-        
+
         Divide by 2 and check if the result is an integer
         (no fractional part).
         
