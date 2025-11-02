@@ -132,12 +132,12 @@ class ParityChecker:
 
         Divide by 2 and check if the result is an integer
         (no fractional part).
-        
+
         Time Complexity: O(1)
-        
+
         Args:
             number: Integer to check
-            
+
         Returns:
             Tuple of (is_even, explanation)
         """
@@ -146,14 +146,14 @@ class ParityChecker:
         explanation = (f"{number} / 2 = {result}, "
                       f"{'no' if is_even else 'has'} fractional part")
         return is_even, explanation
-    
+
     def get_binary_representation(self, number: int) -> str:
         """
         Get binary representation of a number.
-        
+
         Args:
             number: Integer to convert
-            
+
         Returns:
             Binary string representation
         """
@@ -162,20 +162,20 @@ class ParityChecker:
             # Python uses two's complement for negative numbers
             return f"{bin(number)} (two's complement)"
         return bin(number)
-    
+
     def check_parity(self, number: int, method: CheckMethod) -> ParityResult:
         """
         Check number parity using specified method.
-        
+
         Args:
             number: Integer to check
             method: Method to use for checking
-            
+
         Returns:
             ParityResult with check details
         """
         binary_repr = self.get_binary_representation(number)
-        
+
         # Select appropriate checking method
         if method == CheckMethod.MODULO:
             is_even, explanation = self.check_modulo(number)
@@ -187,7 +187,7 @@ class ParityChecker:
             is_even, explanation = self.check_division(number)
         else:
             raise ValueError(f"Unknown method: {method}")
-        
+
         return ParityResult(
             number=number,
             is_even=is_even,
@@ -195,28 +195,28 @@ class ParityChecker:
             binary_repr=binary_repr,
             explanation=explanation
         )
-    
+
     def check_multiple(self, numbers: List[int], method: CheckMethod = CheckMethod.MODULO) -> List[ParityResult]:
         """
         Check parity for multiple numbers.
-        
+
         Args:
             numbers: List of integers to check
             method: Method to use for checking
-            
+
         Returns:
             List of ParityResult objects
         """
         return [self.check_parity(num, method) for num in numbers]
-    
+
     def benchmark_methods(self, number: int, iterations: int = 1000000) -> dict:
         """
         Benchmark different parity checking methods.
-        
+
         Args:
             number: Number to check
             iterations: Number of iterations for benchmarking
-            
+
         Returns:
             Dictionary with timing results for each method
         """
@@ -226,7 +226,7 @@ class ParityChecker:
             (CheckMethod.BITSHIFT, self.check_bitshift),
             (CheckMethod.DIVISION, self.check_division)
         ]
-        
+
         results = {}
         for method_enum, method_func in methods:
             start_time = time.perf_counter()
@@ -241,7 +241,7 @@ class ParityChecker:
 def is_even_or_odd(number: int) -> str:
     """
     Determine if a number is even or odd (backward compatible function).
-    
+
     This function maintains compatibility with the original implementation
     while using the new ParityChecker internally.
 
@@ -250,7 +250,7 @@ def is_even_or_odd(number: int) -> str:
 
     Returns:
         "Even" if the number is even, "Odd" if the number is odd
-        
+
     Example:
         >>> is_even_or_odd(4)
         'Even'
@@ -265,13 +265,13 @@ def is_even_or_odd(number: int) -> str:
 def validate_input(value: str) -> int:
     """
     Validate and convert string input to integer.
-    
+
     Args:
         value: String value to validate
-        
+
     Returns:
         Validated integer
-        
+
     Raises:
         ValueError: If input is not a valid integer
     """
@@ -284,17 +284,17 @@ def validate_input(value: str) -> int:
 def display_result(result: ParityResult, detailed: bool = False) -> None:
     """
     Display parity check result.
-    
+
     Args:
         result: ParityResult to display
         detailed: If True, show detailed information
     """
     parity = "EVEN" if result.is_even else "ODD"
-    
+
     print(f"\n{'='*50}")
     print(f"Number: {result.number} is {parity}")
     print(f"{'='*50}")
-    
+
     if detailed:
         print(f"Method: {result.method.upper()}")
         print(f"Binary: {result.binary_repr}")
@@ -304,7 +304,7 @@ def display_result(result: ParityResult, detailed: bool = False) -> None:
 def interactive_mode(checker: ParityChecker) -> None:
     """
     Run interactive mode for parity checking.
-    
+
     Args:
         checker: ParityChecker instance
     """
@@ -312,21 +312,21 @@ def interactive_mode(checker: ParityChecker) -> None:
         print("\n" + "="*60)
         print("EVEN OR ODD CHECKER - INTERACTIVE MODE")
         print("="*60)
-        
+
         # Get input
         user_input = input("\nEnter an integer (or 'quit' to exit): ").strip()
-        
+
         if user_input.lower() == 'quit':
             print("Goodbye!")
             break
-        
+
         # Validate input
         try:
             number = validate_input(user_input)
         except ValueError as e:
             print(f"❌ Error: {e}")
             continue
-        
+
         # Display menu
         print("\nSelect checking method:")
         print("1. Modulo (% operator)")
@@ -335,9 +335,9 @@ def interactive_mode(checker: ParityChecker) -> None:
         print("4. Division (/ operator)")
         print("5. Compare All Methods")
         print("6. Benchmark Performance")
-        
+
         choice = input("\nEnter your choice (1-6): ").strip()
-        
+
         if choice == '1':
             result = checker.check_parity(number, CheckMethod.MODULO)
             display_result(result, detailed=True)
@@ -365,7 +365,7 @@ def interactive_mode(checker: ParityChecker) -> None:
                 print(f"  {method:10s}: {time_taken:.4f} seconds")
         else:
             print("❌ Invalid choice!")
-        
+
         # Continue prompt
         if input("\nCheck another number? (y/n): ").lower() != 'y':
             print("Thank you for using Even or Odd Checker!")
@@ -375,7 +375,7 @@ def interactive_mode(checker: ParityChecker) -> None:
 def main() -> None:
     """
     Main function with CLI support and error handling.
-    
+
     Provides both command-line and interactive modes for checking
     if numbers are even or odd using various methods.
     """
@@ -393,7 +393,7 @@ Examples:
   %(prog)s 42 --benchmark      # Benchmark all methods
         """
     )
-    
+
     parser.add_argument(
         'numbers',
         nargs='*',
@@ -415,12 +415,12 @@ Examples:
         action='store_true',
         help='Benchmark all methods'
     )
-    
+
     args = parser.parse_args()
-    
+
     # Create checker instance
     checker = ParityChecker(verbose=args.detailed)
-    
+
     # Handle different modes
     if args.numbers:
         # Command-line mode
@@ -429,7 +429,7 @@ Examples:
         except ValueError as e:
             print(f"❌ Error: {e}")
             sys.exit(1)
-        
+
         # Map method string to enum
         method_map = {
             'modulo': CheckMethod.MODULO,
@@ -438,9 +438,9 @@ Examples:
             'division': CheckMethod.DIVISION,
             'all': CheckMethod.ALL
         }
-        
+
         selected_method = method_map[args.method]
-        
+
         # Process each number
         for number in numbers:
             if args.benchmark:
