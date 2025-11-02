@@ -1,7 +1,8 @@
 # !/usr/bin/env python3
 """
 
-Ask the user for their age and print whether they are a minor, adult, or senior.
+Ask the user for their age and print whether they are a minor, adult, or
+senior.
 
 """
 
@@ -13,6 +14,7 @@ def get_age_title(age):
         return "adult"
     else:
         return "senior"
+
 
 if __name__ == "__main__":
     age = int(input("Enter your age: "))
