@@ -168,12 +168,14 @@ def main() -> None:
     if age < 18:
         years_to_adult = 18 - age
         print(
-            f"\n📚 Educational Note: You will be an adult in {years_to_adult} year{'s' if years_to_adult != 1 else ''}."
+            f"\n📚 Educational Note: You will be an adult in {years_to_adult} "
+            f"year{'s' if years_to_adult != 1 else ''}."
         )
     elif age < 65:
         years_to_senior = 65 - age
         print(
-            f"\n📚 Educational Note: You will be a senior in {years_to_senior} year{'s' if years_to_senior != 1 else ''}."
+            f"\n📚 Educational Note: You will be a senior in {years_to_senior} "
+            f"year{'s' if years_to_senior != 1 else ''}."
         )
 
 
