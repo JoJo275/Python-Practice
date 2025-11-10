@@ -12,16 +12,24 @@ import os
 import sys
 
 
-def verify_password(stored_password: str) -> bool:
+def verify_password(stored_password: str, debug_mode: bool = False) -> bool:
     """
     Prompt the user for a password and verify it against the stored password.
 
     Args:
         stored_password: The correct password to verify against.
+        debug_mode: If True, shows password as you type (for testing only).
     Returns:
         True if the entered password matches the stored password, False otherwise.
     """
-    entered_password = getpass.getpass("Enter your password: ")
+    if debug_mode:
+        # WARNING: Only use for debugging - this shows the password!
+        print("⚠️  DEBUG MODE: Password will be visible!")
+        entered_password = input("Enter your password (VISIBLE): ")
+    else:
+        # Normal secure mode - password is hidden
+        print("(Password input is hidden for security)")
+        entered_password = getpass.getpass("Enter your password: ")
     return entered_password == stored_password
 
 
@@ -50,13 +58,16 @@ def get_stored_password_from_csv(file_path: str) -> str:
             return row[0]
         except StopIteration:
             raise ValueError("The CSV file is empty.")
-        
+
 
 def main():
     """
     Main function to execute the password verification process.
     """
     csv_file_path = 'passwords.csv'  # Path to the CSV file containing the password
+    
+    # Check for debug mode from command line arguments
+    debug_mode = '--debug' in sys.argv
 
     try:
         stored_password = get_stored_password_from_csv(csv_file_path)
@@ -64,7 +75,7 @@ def main():
         print(f"Error: {e}")
         sys.exit(1)
 
-    if verify_password(stored_password):
+    if verify_password(stored_password, debug_mode):
         print("Access granted")
     else:
         print("Access denied")
