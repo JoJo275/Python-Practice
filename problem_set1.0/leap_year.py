@@ -4,6 +4,7 @@ Determine if a year is a leap year.
 
 """
 
+
 def is_leap_year(year: int) -> bool:
     """
     Determine if the given year is a leap year.
@@ -34,7 +35,8 @@ def is_leap_year(year: int) -> bool:
         return True
     else:
         return False
-    
+
+
 if __name__ == "__main__":
     user = int(input("Enter a year: "))
     if is_leap_year(user):
