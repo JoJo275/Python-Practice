@@ -1,15 +1,16 @@
-    """
-    
+"""
+
 Ask for a password and verify if it matches a stored one in a csv file.
 If it matches, print "Access granted", otherwise print "Access denied".
 Check the csv file for password.
-    
-    """
+
+"""
 
 import csv
 import getpass
 import os
 import sys
+
 
 def verify_password(stored_password: str) -> bool:
     """
@@ -22,6 +23,7 @@ def verify_password(stored_password: str) -> bool:
     """
     entered_password = getpass.getpass("Enter your password: ")
     return entered_password == stored_password
+
 
 def get_stored_password_from_csv(file_path: str) -> str:
     """
@@ -66,6 +68,7 @@ def main():
         print("Access granted")
     else:
         print("Access denied")
+
 
 if __name__ == "__main__":
     main()
