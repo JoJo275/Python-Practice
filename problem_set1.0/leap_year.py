@@ -20,13 +20,13 @@ def is_leap_year(year: int) -> bool:
 
     Args:
         year (int): The year to check.
-        
+
     Returns:
         bool: True if the year is a leap year, False otherwise.
-        
+
     Raises:
         ValueError: If year is not a positive integer.
-        
+
     Examples:
         >>> is_leap_year(2020)
         True
@@ -39,7 +39,7 @@ def is_leap_year(year: int) -> bool:
     """
     if year <= 0:
         raise ValueError(f"Year must be positive, got {year}")
-    
+
     # More concise logic: divisible by 4 AND (not by 100 OR by 400)
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
@@ -47,25 +47,25 @@ def is_leap_year(year: int) -> bool:
 def get_valid_year() -> Optional[int]:
     """
     Get a valid year from user input with error handling.
-    
+
     Returns:
         Valid year as integer, or None if user wants to quit.
     """
     while True:
         try:
             user_input = input("Enter a year (or 'quit' to exit): ").strip()
-            
+
             if user_input.lower() in ('quit', 'q', 'exit'):
                 return None
-            
+
             year = int(user_input)
-            
+
             if year <= 0:
                 print(f"Error: Year must be positive. You entered {year}.")
                 continue
-                
+
             return year
-            
+
         except ValueError:
             print(f"Error: '{user_input}' is not a valid integer.")
         except KeyboardInterrupt:
@@ -78,13 +78,13 @@ def main() -> None:
     print("="*50)
     print("LEAP YEAR CHECKER")
     print("="*50)
-    
+
     year = get_valid_year()
-    
+
     if year is None:
         print("Goodbye!")
         return
-    
+
     try:
         if is_leap_year(year):
             print(f"✓ {year} is a leap year.")
@@ -98,7 +98,7 @@ def main() -> None:
             while not is_leap_year(next_leap):
                 next_leap += 1
             print(f"  (Next leap year: {next_leap})")
-            
+
     except ValueError as e:
         print(f"Error: {e}")
         sys.exit(1)
