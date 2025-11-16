@@ -10,6 +10,8 @@ target (exactly one solution, no reuse of elements).
 """
 
 from typing import List, Optional, Tuple
+
+
 def two_sum(nums: List[int], target: int) -> Optional[Tuple[int, int]]:
     """
     Find indices of the two numbers in `nums` that add up to `target`.
