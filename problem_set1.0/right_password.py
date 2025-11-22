@@ -15,3 +15,14 @@ correct password, the program prints "Too many incorrect attempts. Exiting."
 with the exit code "good try".
 
 """
+
+def main():
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    main()
