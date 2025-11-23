@@ -23,25 +23,13 @@ def getpass():
     """
     Get password from user.
         
-        
-        Args:
-            input_data (Any): The input data to process. Can be any type
-                            depending on application needs (str, dict, list,
-                            file path, etc.).
-        
         Returns:
-            Any: The processed result. Type depends on the implementation.
-                 Default implementation returns a formatted string.
-        
-        Side Effects:
-            - Logs an INFO message about processing
-            - May modify internal state (in overridden versions)
+            str: The password entered by the user.
         
         Example:
-            >>> app = Application()
-            >>> result = app.process("test data")
-            >>> print(result)
-            'Processed: test data'
+            >>> user = getpass()
+            >>> print(f"Password: {user}")
+               'Password: <user_input>'
         
         Override Example:
             class DataProcessor(Application):
