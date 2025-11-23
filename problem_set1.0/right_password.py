@@ -16,9 +16,15 @@ with the exit code "good try".
 
 """
 
+# Static variables
 PASSWORD = "Orange_Chicken72!"  # Stored password for verification
 
 def main():
+
+
+
+def welcome()
+    
 
 
 def getpass():
@@ -33,6 +39,9 @@ def getpass():
         >>> print(f"Password: {user}")
         Password: <user_input>
     """
+
+while True:
+    entered_password = input("Enter your password: ")
 
 
 if __name__ == "__main__":
