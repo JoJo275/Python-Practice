@@ -16,6 +16,8 @@ with the exit code "good try".
 
 """
 
+PASSWORD = "Orange_Chicken72!"  # Stored password for verification
+
 def main():
 
 
