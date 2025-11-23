@@ -21,7 +21,39 @@ def main():
 
 def getpass():
     """
-    
+    Process the main application logic.
+        
+        This is the core method where the main business logic should be
+        implemented. Override this method to add custom processing.
+        
+        Args:
+            input_data (Any): The input data to process. Can be any type
+                            depending on application needs (str, dict, list,
+                            file path, etc.).
+        
+        Returns:
+            Any: The processed result. Type depends on the implementation.
+                 Default implementation returns a formatted string.
+        
+        Side Effects:
+            - Logs an INFO message about processing
+            - May modify internal state (in overridden versions)
+        
+        Example:
+            >>> app = Application()
+            >>> result = app.process("test data")
+            >>> print(result)
+            'Processed: test data'
+        
+        Override Example:
+            class DataProcessor(Application):
+                def process(self, input_data):
+                    # Parse input
+                    data = parse_csv(input_data)
+                    # Transform data
+                    transformed = transform_data(data)
+                    # Return result
+                    return transformed
     """
 
 
