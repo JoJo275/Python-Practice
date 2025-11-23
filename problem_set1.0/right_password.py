@@ -21,10 +21,8 @@ def main():
 
 def getpass():
     """
-    Process the main application logic.
+    Get password from user.
         
-        This is the core method where the main business logic should be
-        implemented. Override this method to add custom processing.
         
         Args:
             input_data (Any): The input data to process. Can be any type
