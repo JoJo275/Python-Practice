@@ -29,21 +29,8 @@ def getpass():
         Example:
             >>> user = getpass()
             >>> print(f"Password: {user}")
-               'Password: <user_input>'
-        
-        Override Example:
-            class DataProcessor(Application):
-                def process(self, input_data):
-                    # Parse input
-                    data = parse_csv(input_data)
-                    # Transform data
-                    transformed = transform_data(data)
-                    # Return result
-                    return transformed
+        'Password: <user_input>'
     """
-
-
-
 
 
 if __name__ == "__main__":
