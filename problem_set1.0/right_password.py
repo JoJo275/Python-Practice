@@ -22,14 +22,14 @@ def main():
 def getpass():
     """
     Get password from user.
-        
-        Returns:
-            str: The password entered by the user.
-        
-        Example:
-            >>> user = getpass()
-            >>> print(f"Password: {user}")
-        'Password: <user_input>'
+    
+    Returns:
+        str: The password entered by the user.
+    
+    Example:
+        >>> user = getpass()
+        >>> print(f"Password: {user}")
+        Password: <user_input>
     """
 
 
