@@ -40,8 +40,12 @@ def getpass():
         Password: <user_input>
     """
 
-while True:
-    entered_password = input("Enter your password: ")
+    while True:
+        entered_password = input("Enter your password: ")
+        if entered_password == '':
+            print(f"Good guess, but the password cannot be empty. Please try again.")
+        
+
 
 
 if __name__ == "__main__":
