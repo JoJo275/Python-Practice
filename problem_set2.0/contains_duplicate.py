@@ -19,20 +19,20 @@ This is a common coding interview question!
 def contains_duplicate_simple(numbers):
     """
     Check if a list contains any duplicate values using a set.
-    
+
     How this works:
     ---------------
     A "set" in Python is a collection that cannot have duplicates.
     If we convert a list to a set, duplicates are automatically removed.
-    
+
     So if the set is smaller than the original list, there were duplicates!
-    
+
     Args:
         numbers (list): A list of values to check
-    
+
     Returns:
         bool: True if there are duplicates, False if all values are unique
-    
+
     Example:
         >>> contains_duplicate_simple([1, 2, 3, 1])
         True
@@ -43,13 +43,13 @@ def contains_duplicate_simple(numbers):
     # Sets automatically remove duplicates
     # Example: [1, 2, 1] becomes {1, 2}
     unique_values = set(numbers)
-    
+
     # Compare lengths:
     # - If set is smaller, some duplicates were removed
     # - If lengths are equal, all values were unique
     original_length = len(numbers)
     unique_length = len(unique_values)
-    
+
     # Return True if there are duplicates (lengths are different)
     return original_length != unique_length
 
