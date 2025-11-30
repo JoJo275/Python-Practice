@@ -60,10 +60,9 @@ def group_anagrams(strs: list[str]) -> list[list[str]]:
     """
     # defaultdict auto-creates empty list for new keys
     groups = defaultdict(list)
-    
+
     for word in strs:
         # tuple(sorted(word)) creates hashable key: "eat" -> ('a','e','t')
         groups[tuple(sorted(word))].append(word)
-    
-    return list(groups.values())
 
+    return list(groups.values())
