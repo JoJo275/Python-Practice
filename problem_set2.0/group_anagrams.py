@@ -66,3 +66,17 @@ def group_anagrams(strs: list[str]) -> list[list[str]]:
         groups[tuple(sorted(word))].append(word)
 
     return list(groups.values())
+
+
+if __name__ == "__main__":
+    # Get user input: comma-separated words
+    user_input = input("Enter words separated by commas (e.g., eat,tea,tan,ate,nat,bat): ")
+    
+    # Parse input: split by comma, strip whitespace, filter empty strings
+    words = [word.strip() for word in user_input.split(",") if word.strip()]
+    
+    if words:
+        result = group_anagrams(words)
+        print(f"\nGrouped anagrams: {result}")
+    else:
+        print("No words entered.")
