@@ -75,10 +75,10 @@ if __name__ == "__main__":
     # Get user input
     user_nums = input("Enter numbers separated by commas (e.g., 1,1,1,2,2,3): ")
     k = int(input("How many top frequent elements? (k): "))
-    
+
     # Parse input: split, strip, convert to int
     nums = [int(n.strip()) for n in user_nums.split(",") if n.strip()]
-    
+
     if nums and k > 0:
         result = top_k_frequent(nums, k)
         print(f"\nTop {k} frequent elements: {result}")
