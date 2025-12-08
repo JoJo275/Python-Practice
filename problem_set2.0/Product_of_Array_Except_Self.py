@@ -77,7 +77,7 @@ def product_except_self(nums: list[int]) -> list[int]:
     """
     n = len(nums)
     result = [1] * n  # Start with all 1s
-    
+
     # Build prefix products (left to right)
     prefix = 1
     for i in range(n):
