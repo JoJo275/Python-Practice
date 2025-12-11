@@ -23,7 +23,7 @@ Format: {length}#{string}{length}#{string}...
 
 Example:
     ["hello", "world"] -> "5#hello5#world"
-    
+
     Breakdown:
     - "5#hello" = length is 5, then read 5 characters: "hello"
     - "5#world" = length is 5, then read 5 characters: "world"
@@ -95,24 +95,24 @@ def decode(s: str) -> list[str]:
     """
     result = []
     i = 0
-    
+
     while i < len(s):
         # Find the "#" delimiter to get the length
         j = s.index("#", i)          # Find next "#" starting from i
         length = int(s[i:j])          # Characters before "#" = length
         result.append(s[j + 1:j + 1 + length])  # Extract the string
         i = j + 1 + length            # Move to next encoded string
-    
+
     return result
 
 
 if __name__ == "__main__":
     # Get user input
     user_input = input("Enter strings separated by commas (e.g., hello,world): ")
-    
+
     # Parse input
     strings = [s.strip() for s in user_input.split(",")]
-    
+
     if strings:
         encoded = encode(strings)
         decoded = decode(encoded)
