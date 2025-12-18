@@ -57,3 +57,4 @@ if __name__ == "__main__":
     print(f"Input: '{test}'")
     print(f"Longest substring length: {longest_substring(test)}")
     # Output: 3 (the substring is "abc")
+ 
