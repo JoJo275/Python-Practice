@@ -20,13 +20,13 @@ Does s2 contain ANY window of characters that is a permutation of s1?
 
 Example:
     s1 = "ab", s2 = "eidbaooo"
-    
+
     Check each window of length 2 in s2:
     - "ei" -> {e:1, i:1} != {a:1, b:1} ❌
     - "id" -> {i:1, d:1} != {a:1, b:1} ❌
     - "db" -> {d:1, b:1} != {a:1, b:1} ❌
     - "ba" -> {b:1, a:1} == {a:1, b:1} ✓ FOUND!
-    
+
     Return True
 
 Algorithm: Sliding Window with Character Count
@@ -79,16 +79,16 @@ def check_inclusion(s1: str, s2: str) -> bool:
     """
     if len(s1) > len(s2):
         return False
-    
+
     # Count characters in s1 (our target)
     s1_count = Counter(s1)
     # Count characters in first window of s2
     window_count = Counter(s2[:len(s1)])
-    
+
     # Check first window
     if s1_count == window_count:
         return True
-    
+
     # Slide window across s2
     for i in range(len(s1), len(s2)):
         # Add new character (entering window)
@@ -98,11 +98,11 @@ def check_inclusion(s1: str, s2: str) -> bool:
         window_count[old_char] -= 1
         if window_count[old_char] == 0:
             del window_count[old_char]  # Remove zero counts for clean comparison
-        
+
         # Check if current window matches
         if s1_count == window_count:
             return True
-    
+
     return False
 
 
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     # Get user input
     s1 = input("Enter pattern string (s1): ")
     s2 = input("Enter string to search in (s2): ")
-    
+
     if s1 and s2:
         result = check_inclusion(s1, s2)
         print(f"\nDoes '{s2}' contain a permutation of '{s1}'? {result}")
