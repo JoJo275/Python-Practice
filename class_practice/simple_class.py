@@ -20,6 +20,11 @@ def main():
 
 # Function to get student details from user input using the "Student" class,
 # "student" object, and "student" attributes.
+
+# These attributes can also be called instance variables because they are
+# tied to a specific instance of the class and are variables that belong to
+# that instance.
+
 def get_student():
     student = Student()
     student.name = input("Name: ")
