@@ -5,8 +5,10 @@ Simple example of a class in Python from CS50 - Lecture 8 - Object Oriented Prog
 
 """
 
+
 class Student:
     ...
+
 
 def main():
     student = Student()
@@ -18,6 +20,7 @@ def get_student():
     student.name = input("Name: ")
     student.house = input("House: ")
     return student
+
 
 if __name__ == "__main__":
     main()
