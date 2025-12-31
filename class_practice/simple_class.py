@@ -5,6 +5,7 @@ Simple example of a class in Python from CS50 - Lecture 8 - Object Oriented Prog
 
 """
 
+
 # Initializing class "Student".
 class Student:
     ...
