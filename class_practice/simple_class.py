@@ -19,3 +19,5 @@ def get_student():
     student.house = input("House: ")
     return student
 
+if __name__ == "__main__":
+    main()
