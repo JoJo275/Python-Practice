@@ -3,7 +3,7 @@
 
 Property Practice Module in classes for demonstration purposes.
 
-    """
+"""
 
 
 class Person:
@@ -54,4 +54,3 @@ if __name__ == "__main__":
     print("\nTrying to set negative age:")
     person.age = -5
     print(f"Age is still: {person.age}")
-
