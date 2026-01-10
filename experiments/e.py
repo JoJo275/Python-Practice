@@ -8,6 +8,26 @@ Python file with many different docstring styles and formats.
 # =============================================================================
 # 1. ONE-LINE DOCSTRING (PEP 257)
 # =============================================================================
+# DESCRIPTION:
+#   The simplest form of docstring - a single line enclosed in triple quotes.
+#   It should fit on one line and end with a period. The closing quotes are
+#   on the same line as the opening quotes.
+#
+# WHAT IT DOES:
+#   Provides a brief, concise description of what the function/class does.
+#   Should be a phrase ending in a period, written as a command (e.g.,
+#   "Return the sum" not "Returns the sum").
+#
+# WHY USE IT:
+#   - Perfect for simple, self-explanatory functions
+#   - Minimal overhead for straightforward code
+#   - Follows Python's official style guide (PEP 257)
+#   - Quick to write and easy to read
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High)
+#   Universal standard for simple functions. Every Python developer uses this.
+#   It's the baseline that all other styles build upon.
+# =============================================================================
 
 def add(a, b):
     """Return the sum of two numbers."""
@@ -16,6 +36,26 @@ def add(a, b):
 
 # =============================================================================
 # 2. MULTI-LINE DOCSTRING (PEP 257)
+# =============================================================================
+# DESCRIPTION:
+#   An extended docstring that spans multiple lines. The first line is a
+#   summary, followed by a blank line, then a more detailed description.
+#   The closing quotes are on their own line.
+#
+# WHAT IT DOES:
+#   Provides both a quick summary and detailed explanation. The summary line
+#   can be used by automatic indexing tools, while the detailed description
+#   gives developers more context.
+#
+# WHY USE IT:
+#   - When a one-liner isn't enough to explain the function
+#   - To provide context, caveats, or implementation details
+#   - Still follows PEP 257 without committing to a specific format style
+#   - Good for internal documentation without formal structure
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High)
+#   Standard approach when more detail is needed. Used everywhere in Python.
+#   Forms the foundation that Google, NumPy, and other styles extend.
 # =============================================================================
 
 def multiply(a, b):
@@ -30,6 +70,28 @@ def multiply(a, b):
 
 # =============================================================================
 # 3. GOOGLE STYLE DOCSTRING
+# =============================================================================
+# DESCRIPTION:
+#   Developed by Google, this style uses indented sections with headers like
+#   Args, Returns, Raises, Examples, etc. Each section uses a specific format
+#   with parameter names followed by types in parentheses and descriptions.
+#
+# WHAT IT DOES:
+#   Organizes documentation into clear, scannable sections. Makes it easy to
+#   quickly find parameter info, return values, and exceptions. The format is
+#   human-readable while still being parseable by documentation generators.
+#
+# WHY USE IT:
+#   - Extremely readable in source code (clean, not cluttered)
+#   - Well-supported by Sphinx (via napoleon extension) and other doc tools
+#   - Great balance between detail and brevity
+#   - Industry standard at many tech companies
+#   - IDE support for autocompletion and tooltips
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High)
+#   One of the TWO most popular styles (along with NumPy). Widely adopted in
+#   industry, open-source projects, and recommended by many style guides.
+#   Used by Google, TensorFlow, Keras, and countless other projects.
 # =============================================================================
 
 def google_style(param1, param2, param3=None):
@@ -67,6 +129,28 @@ def google_style(param1, param2, param3=None):
 
 # =============================================================================
 # 4. NUMPY/SCIPY STYLE DOCSTRING
+# =============================================================================
+# DESCRIPTION:
+#   Originated from the NumPy and SciPy projects. Uses section headers with
+#   underlines (like reStructuredText) and a specific format for parameters.
+#   More verbose than Google style but provides more structured detail.
+#
+# WHAT IT DOES:
+#   Provides comprehensive documentation with clear visual separation between
+#   sections. Parameters are listed with name, type, and description on
+#   separate lines. Includes special sections like See Also, Notes, References.
+#
+# WHY USE IT:
+#   - Ideal for scientific/mathematical code with complex parameters
+#   - Great for documenting array shapes, dtypes, and mathematical operations
+#   - Excellent for API documentation with cross-references
+#   - Supported by Sphinx (via napoleon extension)
+#   - Standard in the scientific Python ecosystem
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High)
+#   THE standard for scientific Python. Used by NumPy, SciPy, Pandas,
+#   Matplotlib, scikit-learn, and virtually all data science libraries.
+#   If you're doing data science or scientific computing, use this style.
 # =============================================================================
 
 def numpy_style(arr, axis=None, keepdims=False):
@@ -125,6 +209,28 @@ def numpy_style(arr, axis=None, keepdims=False):
 # =============================================================================
 # 5. RESTRUCTUREDTEXT (SPHINX) STYLE DOCSTRING
 # =============================================================================
+# DESCRIPTION:
+#   Uses reStructuredText (reST) markup with field lists. Parameters are
+#   documented using :param:, :type:, :returns:, :rtype:, :raises: directives.
+#   This is Sphinx's native format before the napoleon extension existed.
+#
+# WHAT IT DOES:
+#   Provides machine-parseable documentation that Sphinx can directly convert
+#   to HTML, PDF, or other formats. Supports cross-referencing, links, and
+#   rich formatting like notes, warnings, and code blocks.
+#
+# WHY USE IT:
+#   - Native Sphinx support (no extensions needed)
+#   - Powerful cross-referencing capabilities (:func:, :class:, :mod:)
+#   - Rich formatting options (notes, warnings, code blocks, math)
+#   - Good for projects heavily invested in Sphinx documentation
+#   - Precise control over generated documentation
+#
+# POPULARITY: ⭐⭐⭐ (Moderate)
+#   Was more popular before Google/NumPy styles gained traction. Still used
+#   in many older projects and by developers who prefer explicit reST markup.
+#   Considered more verbose and harder to read in source code than alternatives.
+# =============================================================================
 
 def sphinx_style(name, age, email=None):
     """
@@ -164,6 +270,28 @@ def sphinx_style(name, age, email=None):
 # =============================================================================
 # 6. EPYTEXT STYLE DOCSTRING (Epydoc)
 # =============================================================================
+# DESCRIPTION:
+#   A legacy format from the Epydoc documentation generator. Uses @-prefixed
+#   tags similar to Javadoc. Includes tags like @param, @type, @return, @rtype,
+#   @raise, and many metadata tags like @author, @version, @since.
+#
+# WHAT IT DOES:
+#   Documents code using a tag-based system familiar to Java developers.
+#   Provides extensive metadata capabilities for authorship, versioning,
+#   licensing, and other project information within docstrings.
+#
+# WHY USE IT:
+#   - Familiar to developers coming from Java/Javadoc
+#   - Rich metadata support (@author, @version, @since, @license)
+#   - Clear, explicit tag-based structure
+#   - Good for projects requiring detailed attribution
+#
+# POPULARITY: ⭐⭐ (Low - Legacy)
+#   Epydoc is no longer actively maintained (last release 2008). This style
+#   is considered DEPRECATED in favor of Google or NumPy styles. You may
+#   encounter it in older codebases, but avoid using it for new projects.
+#   Included here for historical reference and legacy code maintenance.
+# =============================================================================
 
 def epytext_style(x, y):
     """
@@ -192,6 +320,26 @@ def epytext_style(x, y):
 
 # =============================================================================
 # 7. CLASS DOCSTRING (Google Style)
+# =============================================================================
+# DESCRIPTION:
+#   Applying Google style to class documentation. The class docstring describes
+#   the class purpose and lists Attributes. The __init__ method gets its own
+#   docstring with Args. Each method is documented individually.
+#
+# WHAT IT DOES:
+#   Provides a complete picture of the class: what it represents, what
+#   attributes it has, and how to use it. Separates class-level documentation
+#   from constructor and method documentation.
+#
+# WHY USE IT:
+#   - Clear separation between class purpose and implementation details
+#   - Attributes section shows the class's state at a glance
+#   - Consistent with Google style used for functions
+#   - Works well with IDE tooltips and documentation generators
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High)
+#   Standard approach for class documentation in Google-style projects.
+#   Recommended when your project uses Google style for functions.
 # =============================================================================
 
 class GoogleStyleClass:
@@ -242,6 +390,26 @@ class GoogleStyleClass:
 # =============================================================================
 # 8. CLASS DOCSTRING (NumPy Style)
 # =============================================================================
+# DESCRIPTION:
+#   Applying NumPy style to class documentation. Includes Parameters (for
+#   __init__), Attributes, and Methods sections. More verbose but provides
+#   a complete API reference in the docstring itself.
+#
+# WHAT IT DOES:
+#   Creates a mini API reference within the class docstring. The Methods
+#   section provides a quick overview of available functionality without
+#   reading each method's individual docstring.
+#
+# WHY USE IT:
+#   - Comprehensive class overview in one place
+#   - Methods section acts as a quick reference guide
+#   - Consistent with NumPy style used for functions
+#   - Ideal for data structures and scientific computing classes
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High)
+#   Standard for scientific Python classes. Used throughout NumPy, Pandas,
+#   and scikit-learn. Recommended for data science projects.
+# =============================================================================
 
 class NumpyStyleClass:
     """
@@ -288,6 +456,28 @@ class NumpyStyleClass:
 
 # =============================================================================
 # 9. MODULE-LEVEL DOCSTRING EXAMPLE
+# =============================================================================
+# DESCRIPTION:
+#   The docstring at the very top of a Python file (after shebang and encoding
+#   declarations). Documents the entire module's purpose, contents, and usage.
+#   Should be the first statement in the module.
+#
+# WHAT IT DOES:
+#   Provides high-level documentation visible via help(module) and in generated
+#   docs. Lists the module's public API (functions, classes, constants) and
+#   gives usage examples for the module as a whole.
+#
+# WHY USE IT:
+#   - First thing developers see when reading or importing your module
+#   - Accessible via help() and __doc__ attribute
+#   - Essential for library/package documentation
+#   - Helps users understand module purpose without reading all the code
+#   - Required for proper Sphinx documentation generation
+#
+# POPULARITY: ⭐⭐⭐⭐⭐ (Very High - Essential)
+#   Every well-documented Python module should have one. It's a fundamental
+#   part of Python documentation standards. Often overlooked in tutorials
+#   but critical for professional and library code.
 # =============================================================================
 
 MODULE_DOCSTRING_EXAMPLE = '''
@@ -342,6 +532,27 @@ References
 # =============================================================================
 # 10. GENERATOR FUNCTION DOCSTRING
 # =============================================================================
+# DESCRIPTION:
+#   Documentation for generator functions (using yield). The key difference
+#   from regular functions is the use of "Yields" instead of "Returns" to
+#   describe what each iteration produces.
+#
+# WHAT IT DOES:
+#   Clarifies that the function is a generator (not a regular function) and
+#   documents what values are yielded during iteration. Users understand they
+#   need to iterate over the result rather than use it directly.
+#
+# WHY USE IT:
+#   - Makes it immediately clear the function is a generator
+#   - "Yields" section distinguishes from regular "Returns"
+#   - Helps users understand the iteration behavior
+#   - Documents the type and meaning of yielded values
+#
+# POPULARITY: ⭐⭐⭐⭐ (High)
+#   Standard practice for generator documentation. Both Google and NumPy
+#   styles support "Yields" sections. Essential when writing generators
+#   to avoid confusion with regular functions.
+# =============================================================================
 
 def generator_docstring(n):
     """
@@ -373,6 +584,27 @@ def generator_docstring(n):
 
 # =============================================================================
 # 11. ASYNC FUNCTION DOCSTRING
+# =============================================================================
+# DESCRIPTION:
+#   Documentation for async/await coroutine functions. The docstring format
+#   is the same as regular functions, but should clarify async behavior,
+#   await requirements, and any concurrency considerations.
+#
+# WHAT IT DOES:
+#   Documents coroutines with emphasis on async-specific details: what needs
+#   to be awaited, potential blocking operations, timeout handling, and how
+#   to properly call the function (asyncio.run, await, etc.).
+#
+# WHY USE IT:
+#   - Clarifies the function must be awaited
+#   - Documents async-specific exceptions (TimeoutError, CancelledError)
+#   - Shows proper usage with asyncio
+#   - Warns about blocking operations or concurrency issues
+#
+# POPULARITY: ⭐⭐⭐⭐ (High - Growing)
+#   Increasingly important as async Python becomes more common. Standard
+#   docstring styles (Google, NumPy) work well for async functions with
+#   minor additions for async-specific details.
 # =============================================================================
 
 async def async_docstring(url, timeout=30):
@@ -406,6 +638,27 @@ async def async_docstring(url, timeout=30):
 # =============================================================================
 # 12. PROPERTY DOCSTRING
 # =============================================================================
+# DESCRIPTION:
+#   Documentation for @property decorated methods. Properties look like
+#   attributes but are actually methods, so they need documentation explaining
+#   their behavior, especially if they have setters with validation.
+#
+# WHAT IT DOES:
+#   Documents what the property returns, any side effects of getting/setting,
+#   validation rules for setters, and exceptions that might be raised.
+#   The format "type: Description" on the first line is common for properties.
+#
+# WHY USE IT:
+#   - Properties can have complex behavior that needs explanation
+#   - Setter validation rules should be documented
+#   - Users need to know if getting a property has side effects
+#   - Computed properties may need performance notes
+#
+# POPULARITY: ⭐⭐⭐⭐ (High)
+#   Important for any class using properties. The compact "type: Description"
+#   format is recommended by Google style for simple properties. More complex
+#   properties use full docstring format with Raises section.
+# =============================================================================
 
 class PropertyDocstring:
     """Class demonstrating property docstrings."""
@@ -434,6 +687,28 @@ class PropertyDocstring:
 
 # =============================================================================
 # 13. DECORATOR DOCSTRING
+# =============================================================================
+# DESCRIPTION:
+#   Documentation for decorator functions. Decorators modify other functions,
+#   so the docstring must explain what transformation occurs and how the
+#   decorated function's behavior changes.
+#
+# WHAT IT DOES:
+#   Explains what the decorator adds to or changes about the wrapped function.
+#   Documents the expected signature of functions it can decorate, any new
+#   attributes or methods added, and whether it preserves the original
+#   function's metadata (via @functools.wraps).
+#
+# WHY USE IT:
+#   - Decorators are "magic" that needs explanation
+#   - Users need to understand how their function will be modified
+#   - Important to document if decorator changes function signature
+#   - Should clarify if it works with methods, classes, or both
+#
+# POPULARITY: ⭐⭐⭐⭐ (High)
+#   Essential for any reusable decorator. Good decorator documentation
+#   shows before/after examples to illustrate the transformation.
+#   Both Google and NumPy styles work well for decorator documentation.
 # =============================================================================
 
 def decorator_docstring(func):
@@ -465,6 +740,27 @@ def decorator_docstring(func):
 
 # =============================================================================
 # 14. CONTEXT MANAGER DOCSTRING
+# =============================================================================
+# DESCRIPTION:
+#   Documentation for context managers (classes with __enter__/__exit__ or
+#   functions using @contextmanager). Must explain the resource lifecycle:
+#   what happens on entry, what's returned, and cleanup on exit.
+#
+# WHAT IT DOES:
+#   Documents the "with" statement behavior: resource acquisition, the
+#   object returned by __enter__ (the "as" value), cleanup actions in
+#   __exit__, and exception handling behavior.
+#
+# WHY USE IT:
+#   - Context managers have implicit behavior that needs documentation
+#   - Users need to know what "as variable" will receive
+#   - Critical to document if exceptions are suppressed or re-raised
+#   - Resource cleanup guarantees should be clearly stated
+#
+# POPULARITY: ⭐⭐⭐⭐ (High)
+#   Essential for any context manager. The pattern is widely used for
+#   file handling, database connections, locks, and resource management.
+#   Good documentation prevents resource leaks and misuse.
 # =============================================================================
 
 class ContextManagerDocstring:
