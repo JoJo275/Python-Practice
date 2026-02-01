@@ -1,0 +1,3 @@
+"""
+Random module practice
+"""
